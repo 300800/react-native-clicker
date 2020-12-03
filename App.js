@@ -28,15 +28,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 80, fontWeight: "bold" }}>{count}</Text>      
-      <Button title ="Presse Moi!" onPress={increment}></Button>
+      <Text style={{ fontSize: 80, fontWeight: "bold" }}>{count}</Text>   
+      {
+        //<Button onPress={increment}}.title="Press me"></Button>
+      }   
+
+      <TouchableOpacity style={styles.button} onPress={increment}>
+        <Text style={styles.buttonText}>Press me!</Text>
+      </TouchableOpacity>
       <Text style={styles.encouragingText}>{renderEncouragingText()}</Text>
       <Text>This is my amazing new App</Text>
       {() => { 
         if (count >= 10) {
           return "keep going";
         }
-      }
+      },
       <StatusBar style="auto" />
     </View>
   );
@@ -52,6 +58,16 @@ const styles = StyleSheet.create({
   encouragingText: {
     marginTop: 50,
     color: "#888",
+  },
+  button: {
+    backgroundColor: "red",
+    padding: 20,
+    borderRadius: 20
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 30,
   },
 
 });
