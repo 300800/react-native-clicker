@@ -11,10 +11,17 @@ export default function App() {
     console.log(`Count after incrementing is ${count}`);
   }
 
+  function renderEncouragingText() {
+    if (count >= 10) {
+    return "Keep going!";
+  }
+}
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{count}</Text>      
+      <Text style={{ fontSize: 80, fontWeight: "bold" }}>{count}</Text>      
       <Button title ="Presse Moi!" onPress={increment}></Button>
+      <Text style={styles.encouragingText}>{renderEncouragingText()}</Text>
       <Text>This is my amazing new App</Text>
       <StatusBar style="auto" />
     </View>
@@ -28,4 +35,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  encouragingText: {
+    marginTop: 50,
+    color: "#888",
+  },
+
 });
