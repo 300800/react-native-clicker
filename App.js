@@ -10,8 +10,17 @@ export default function App() {
     setCount(count + 1);
     console.log(`Count after incrementing is ${count}`);
   }
+  function decrement() {
+    setCount(count - 1);
+  }
 
   function renderEncouragingText() {
+    if (count >= 30) {
+      return "Wah, hand pain or not?";
+     }
+     if (count >= 20) {
+       return "Hang in there!";
+     }
     if (count >= 10) {
     return "Keep going!";
   }
@@ -23,6 +32,11 @@ export default function App() {
       <Button title ="Presse Moi!" onPress={increment}></Button>
       <Text style={styles.encouragingText}>{renderEncouragingText()}</Text>
       <Text>This is my amazing new App</Text>
+      {() => { 
+        if (count >= 10) {
+          return "keep going";
+        }
+      }
       <StatusBar style="auto" />
     </View>
   );
